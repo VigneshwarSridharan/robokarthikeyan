@@ -1,0 +1,112 @@
+body,html {
+    height: 100%;
+    font-family: 'Ubuntu', sans-serif;
+    line-height: 1;
+    font-weight: 700;
+    color: @primary;
+    background-color: #f4f4f1;
+}
+
+::selection {
+    color: #fff; 
+    background: @primary;
+}
+
+p {
+    line-height: 1.2;
+    color: @text;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin-top: 0;
+    font-family: 'Russo One', sans-serif;
+    font-weight: 400;
+    line-height: 1;
+}
+
+h1,h2,h3 {
+    margin-bottom: 30px;
+}
+
+a {
+    color: inherit;
+    text-decoration: underline;
+    &:focus,&:active,&:hover,&:visited {
+        color: inherit;
+    }
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.ubuntu{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+.section-wrapper {
+    padding-left: 30px;
+    padding-right: 30px;
+    &.tb-pad {
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
+}
+
+.section-bg {
+    position: relative;
+    background-size: cover;
+    background-position: center center;
+    &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: 0;
+        background-clip: fadeout(@primary,50%); 
+    }
+    &.left { background-position: left; }
+    &.right { background-position: right; }
+    &.top { background-position: top; }
+    &.bottom { background-position: bottom; }
+    &.center { background-position: center; }
+}
+
+header {
+    .content {
+	    padding: 150px 0px;
+        text-align: center;
+    }
+}
+
+.nav-btn {
+    display: inline-block;
+    cursor: pointer;
+    span {
+        height: 0px;
+        width: 40px;
+        border-top: solid 3px #fff;
+        display: block;
+        padding-bottom: 8px;
+        transform: translateX(5px);
+        transition: all .5s ease;
+        &:last-child {
+            padding-bottom: 0;
+        }
+        &:nth-child(2) {
+            transform: translateX(-5px);
+        }
+    }
+    &:hover span {
+        transform: none;
+    }
+}
+
+.page-title {
+    position: relative;
+    padding: 30px;
+    background-color: #fff;
+    text-align: center;
+    margin-top: -30px;
+}
