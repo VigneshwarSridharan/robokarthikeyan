@@ -10,17 +10,7 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-8 col-sm-offset-2">
-                <div class="poster">
-                    <img src="" class="img-responsive" alt="">
-                    <?php echo the_post_thumbnail( 'full', ['class'=>'img-responsive'] ); ?>
-                </div>
-            </div>
-        </div>
-    </div>
-	
+    
 
 	<div class="container">
 		<?php

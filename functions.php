@@ -151,3 +151,8 @@ require get_template_directory() . '/inc/custom-post.php';
  * Theme enqueue functions
  */
 require get_template_directory() . '/inc/enqueue.php';
+
+/**
+ * Page custom options
+ */
+require get_template_directory() . '/inc/page-options.php';

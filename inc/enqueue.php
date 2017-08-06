@@ -19,6 +19,7 @@ function robokarthikeyan_load_scripts()
 {
     // Css Files
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+    wp_enqueue_style('Font Awesome', get_template_directory_uri() . '/css/font-awesome.min.css');
     wp_enqueue_style('template', get_template_directory_uri() . '/css/template.css');
     
     // JS Scripts
