@@ -45,11 +45,14 @@ a {
     font-weight: 700;
 }
 .section-wrapper {
-    padding-left: 30px;
-    padding-right: 30px;
     &.tb-pad {
         padding-top: 30px;
         padding-bottom: 30px;
+    }
+    @media screen and(min-width:768px)
+    {
+        padding-left: 30px;
+        padding-right: 30px;
     }
 }
 
@@ -177,6 +180,7 @@ header {
     display: inline-block;
     color: #fff;
     padding: 0;
+    font-weight: 700;
     border-radius: 0;
     padding-right: 36px;
     border: none;

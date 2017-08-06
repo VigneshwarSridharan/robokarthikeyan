@@ -1,9 +1,9 @@
 #commentform {
     .form-group {
-	    margin-bottom: 30px;
+        margin-bottom: 30px;
     }
     .form-control {
-	    background-color: #fff;
+        background-color: #fff;
         padding: 30px;
         border-radius: 0;
         border: none;
@@ -11,6 +11,55 @@
         &:focus {
             outline: none;
             box-shadow: none;
+        }
+    }
+}
+.comment-list {
+    list-style: none;
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
+    .children {
+        padding-left: 30px;
+        list-style: none;
+    }
+    .comment-wrapper {
+        padding: 15px;
+        background-color: #fff;
+        margin-bottom: 15px;
+        padding-left: 130px;
+        .author {
+            float: left;
+            margin-left: -115px
+        }
+        .comment-body {
+            width: 100%;
+            float: left;
+            text-align: justify;
+            hr {
+                margin: 15px 0;
+            }
+            .head {
+                position: relative;
+                .comment-no {
+                    font-size: 42px;
+                    color: fadeout(@primary,90%);
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    font-family: 'Russo One', sans-serif;
+                }
+            }
+            time {
+                font-weight: 400;
+                color: @text;
+                font-style: italic;
+                margin: 0;
+            }
+            .reply a {
+                display: inline-block;
+                line-height: 1;
+            }
         }
     }
 }

@@ -418,8 +418,12 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-#comments .container>#respond #reply-title{
+#comments #respond #reply-title{
     display:none;
+}
+
+#comments .comment-list #respond #reply-title{
+	display: block;
 }
 
 /*--------------------------------------------------------------

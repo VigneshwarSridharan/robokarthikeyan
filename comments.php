@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area section-wrapper tp-pad">
     <div class="container">
         <div class="section-title">
             <h1>Drop Your Words</h1>
@@ -55,12 +55,10 @@ if ( post_password_required() ) {
         }
         
         function robokarthikeyan_comment_reform ($arg) {
-//            echo '<pre>';
-//            print_r($arg);
-//            echo '</pre>';
             $arg['submit_button'] = '<button name="%1$s" type="submit" id="%2$s" class="btn btn-move btn-large" value="%4$s"><span>%3$s</span><i class="fa fa-comments-o"></i></button>';
             $arg['comment_notes_before'] = '';
             $arg['comment_notes_after'] = '<p class="pull-right"><small><em>Your email address will not be published.</em></small></p>';
+            $arg['title_reply'] = 'Your Reply';
             return $arg;
         }
         add_filter('comment_form_defaults','robokarthikeyan_comment_reform');
@@ -68,7 +66,7 @@ if ( post_password_required() ) {
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2">
                 <?php
-                comment_form(array('title_reply' => 'Your Custom Reply Text'));
+                comment_form();
                 ?>
             </div>
         </div>
@@ -80,8 +78,10 @@ if ( post_password_required() ) {
 		<ol class="comment-list">
 			<?php
 				wp_list_comments( array(
+                    'callback' => 'robokarthikeyan_post_comment',
 					'style'      => 'ol',
 					'short_ping' => true,
+                    'avatar_size' => 100
 				) );
 			?>
 		</ol><!-- .comment-list -->
@@ -113,3 +113,51 @@ if ( post_password_required() ) {
 	?>
     </div><!-- .container -->
 </div><!-- #comments -->
+
+<?php
+function robokarthikeyan_post_comment( $comment, $args, $depth ) {
+    $GLOBALS['comment'] = $comment;
+    switch( $comment->comment_type ) :
+        case 'pingback' :
+        case 'trackback' : ?>
+            <li <?php comment_class(); ?> id="comment<?php comment_ID(); ?>">
+            <div class="back-link"><?php comment_author_link(); ?></div>
+        <?php break;
+        default : ?>
+            <li <?php comment_class(); ?> id="comment-<?php comment_ID(); ?>">
+                <div  class="comment-wrapper clearfix">
+                    <div class="author">
+                        <?php
+                            $firstLetter = strtolower(substr($comment->comment_author,0,1));
+                            echo get_avatar( $comment, 100, get_template_directory_uri().'/images/'.$firstLetter.'.png' ); 
+                        ?>
+                    </div><!-- .vcard -->
+                    <div class="comment-body">
+                        <div class="head">
+                            <h4 class="author-name"><?php comment_author(); ?></h4>
+                            <time <?php comment_time( 'c' ); ?> class="comment-time">
+                                <span class="date"> <?php comment_date(); ?> </span>
+                                <span class="time"> <?php comment_time(); ?> </span>
+                            </time>
+                            <div class="comment-no"><?php echo comment_ID(); ?></div>
+                        </div>
+                        <hr>
+                        <?php comment_text(); ?>
+                        <hr>
+                        <div class="reply"><?php 
+                            comment_reply_link( array_merge( $args, array( 
+                                'reply_text' => '<div class="btn btn-move"><span>Reply</span><i class="fa fa-reply"></i></div>',
+                                'depth' => $depth,
+                                'max_depth' => $args['max_depth'] 
+                            ) ) ); ?>
+                        </div><!-- .reply -->
+                    </div><!-- comment-body -->
+                </div><!-- #comment-<?php comment_ID(); ?> -->
+        <?php // End the default styling of comment
+        break;
+    endswitch;
+                ?></li><?php
+}
+?>
+
+
