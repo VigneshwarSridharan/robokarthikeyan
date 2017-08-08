@@ -705,6 +705,10 @@ a:active {
 .comment-content a {
 	word-wrap: break-word;
 }
+#comments form {
+    position: relative;
+    z-index: 10;
+}
 
 .bypostauthor {
 	display: block;

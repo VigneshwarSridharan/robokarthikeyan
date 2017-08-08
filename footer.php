@@ -11,20 +11,35 @@
 
 ?>
 
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'robokarthikeyan' ) ); ?>"><?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'robokarthikeyan' ), 'WordPress' );
-			?></a>
-			<span class="sep"> | </span>
-			<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'robokarthikeyan' ), 'robokarthikeyan', '<a href="https://automattic.com/">Underscores.me</a>' );
-			?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
+<footer class="section-wrapper tb-pad">
+    <div class="section-bg bottom" style="background-image: url(<?php echo wp_get_attachment_image_src(8,'full',true)[0]; ?>)">
+        <div class="container">
+            <?php
+            if(is_active_sidebar('footer-1'))
+            { 
+                ?><div class="col-sm-4"><?php
+                dynamic_sidebar('footer-1');
+                ?></div><?php
+            }
+            if(is_active_sidebar('footer-2'))
+            { 
+                ?><div class="col-sm-4"><?php
+                dynamic_sidebar('footer-2');
+                ?></div><?php
+            }
+            if(is_active_sidebar('footer-3'))
+            { 
+                ?><div class="col-sm-4"><?php
+                dynamic_sidebar('footer-3');
+                ?></div><?php
+            }
+            ?>
+        </div>
+    </div>
+</footer>
+	<div class="copy-rights text-center">
+	    <p>Copyright &copy; Karthikeyan. | Design by Vigneshwar</p>
+	</div>
 
 <?php wp_footer(); ?>
 

@@ -23,14 +23,15 @@
         padding-left: 30px;
         list-style: none;
     }
-    .comment-wrapper {
+    .comment-wrapper { 
         padding: 15px;
         background-color: #fff;
         margin-bottom: 15px;
-        padding-left: 130px;
+        padding-left: 90px;
         .author {
             float: left;
-            margin-left: -115px
+            margin-left: -75px;
+            width: 60px;
         }
         .comment-body {
             width: 100%;
@@ -59,6 +60,14 @@
             .reply a {
                 display: inline-block;
                 line-height: 1;
+            }
+        }
+        @media screen and (min-width:768px)
+        {
+            padding-left: 130px;
+            .author {
+                margin-left: -115px;
+                width: 100px;
             }
         }
     }

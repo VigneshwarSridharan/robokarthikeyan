@@ -37,9 +37,9 @@ if ( post_password_required() ) {
         function robokarthikeyan_disable_comment_url($fields)
         {
             $fields['author'] = '<div class="form-group">' . '<input id="author" class="form-control" placeholder="Your Name*" name="author" type="text" value="' .
-				esc_attr( $commenter['comment_author'] ) . '" ' . $aria_req . ' />' . '</div>';
+				esc_attr( $commenter['comment_author'] ) . '" required />' . '</div>';
            $fields['email'] = '<div class="form-group">' . '<input id="email" class="form-control" placeholder="your Email Address*" name="email" type="text" value="' . esc_attr( $commenter['comment_author_email'] ) .
-				'" size="30"' . $aria_req . ' />' .	'</div>';
+				'" size="30" required />' .	'</div>';
             unset($fields['url']);
             return $fields;
         }
@@ -70,7 +70,7 @@ if ( post_password_required() ) {
                 ?>
             </div>
         </div>
-        
+
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
@@ -137,7 +137,6 @@ function robokarthikeyan_post_comment( $comment, $args, $depth ) {
                             <h4 class="author-name"><?php comment_author(); ?></h4>
                             <time <?php comment_time( 'c' ); ?> class="comment-time">
                                 <span class="date"> <?php comment_date(); ?> </span>
-                                <span class="time"> <?php comment_time(); ?> </span>
                             </time>
                             <div class="comment-no"><?php echo comment_ID(); ?></div>
                         </div>

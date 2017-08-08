@@ -286,11 +286,12 @@ header .content {
   padding: 15px;
   background-color: #fff;
   margin-bottom: 15px;
-  padding-left: 130px;
+  padding-left: 90px;
 }
 .comment-list .comment-wrapper .author {
   float: left;
-  margin-left: -115px;
+  margin-left: -75px;
+  width: 60px;
 }
 .comment-list .comment-wrapper .comment-body {
   width: 100%;
@@ -320,4 +321,13 @@ header .content {
 .comment-list .comment-wrapper .comment-body .reply a {
   display: inline-block;
   line-height: 1;
+}
+@media screen and (min-width: 768px) {
+  .comment-list .comment-wrapper {
+    padding-left: 130px;
+  }
+  .comment-list .comment-wrapper .author {
+    margin-left: -115px;
+    width: 100px;
+  }
 }
