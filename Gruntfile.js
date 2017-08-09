@@ -9,7 +9,8 @@ module.exports = function(grunt) {
         },
         files: {
           //"css/bootstrap.css": "less/bootstrap.less", // destination file and source file
-          "css/template.css": "less/template.less"
+          "css/template.css": "less/template.less",
+          "css/admin-style.css": "less/admin-style.less"
         }
       }
     },
@@ -24,7 +25,7 @@ module.exports = function(grunt) {
 		]
 		},
 		dist: {
-		src: 'css/template.css'
+		src: ['css/template.css','css/admin-style.css']
 		}
 	},
     cssmin: {
@@ -33,6 +34,13 @@ module.exports = function(grunt) {
 			expand: true,
 			cwd: 'css/',
 			src: ['template.css', 'template.min.css'],
+			dest: 'css/',
+			ext: '.min.css'
+			},
+            {
+			expand: true,
+			cwd: 'css/',
+			src: ['admin-style.css', 'admin-style.min.css'],
 			dest: 'css/',
 			ext: '.min.css'
 			}]
