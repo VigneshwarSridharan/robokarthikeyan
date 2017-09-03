@@ -5,8 +5,29 @@
         
     }
     
+    function gridShift()
+    {
+        $('.post-items-grid:even').addClass('left');
+        $('.post-items-grid:odd').each(function() {
+            var $child = $(this).find('.row').children();
+            $(this).addClass('right');
+            $child.each(function(k) {
+                var grid = 12 - Number($(this).attr('class').split('-')[2]);
+                if(k%2)
+                    {
+                        $(this).addClass('col-sm-pull-'+grid)
+                    }
+                else
+                    {
+                        $(this).addClass('col-sm-push-'+grid)
+                    }
+            })
+        });
+    }
+    
     $(document).ready(function () {
         count();
+        gridShift();
     });
     $(window).load(function() {
         
@@ -23,7 +44,6 @@
             $(el).css({
                 width:$(el).find('span').outerWidth()+paddingRight
             });
-            console.log($(el).find('span').outerWidth()+$(el).css('padding-right'));
         });
             
             

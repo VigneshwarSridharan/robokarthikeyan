@@ -117,6 +117,15 @@ function robokarthikeyan_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'robokarthikeyan_scripts' );
 
+add_filter( 'excerpt_more', function($arg) {
+    return '...';
+} );
+
+
+add_filter( 'excerpt_length', function( $length ) {
+    return 20;
+}, 999 );
+
 /**
  * Implement the Custom Header feature.
  */

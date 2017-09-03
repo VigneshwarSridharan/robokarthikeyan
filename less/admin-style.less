@@ -1,3 +1,110 @@
-.box {
-    color: red;
-} 
+@primary : #1b1b1c;
+@text : #808080;
+
+.post-image-wrapper {
+    position: relative;
+    border: solid 1px @primary;
+    line-height: 0;
+    .img {
+        display: inline-block;
+    }
+    .upload {
+        text-align: center;
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        background-color: @primary;
+        color: #fff;
+        position: absolute;
+        right: 0px;
+        top: 0;
+        transition: all .5s ease;
+    }
+    .controls {
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        .left,.right,.top,.bottom {
+            position: absolute;
+            color: #fff;
+            background-color: fadeout(@primary,50%);
+            opacity: 0;
+            font-size: 36px;
+            cursor: pointer;
+            transition: all .5s ease;
+            &:hover {
+                opacity: 1;
+            }
+        }
+        .left,.right {
+            width: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            bottom: 0;
+        }
+        .top,.bottom {
+            left: 0;
+            right: 0;
+            height: 30px;
+            text-align: center;
+            line-height: 30px;
+        }
+        .left {left: 0;}
+        .right {right: 0;}
+        .top {top: 0;}
+        .bottom {bottom: 0;}
+    }
+    &:hover {
+        .upload {
+            right: -40px;
+        }
+    }
+}
+
+.btn-black {
+    background-color: @primary;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 0px;
+    &:hover {
+        outline: none;
+        color: #fff;
+    }
+}
+
+.form-control {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 0;
+    border: none;
+    resize: none;
+}
+
+.ui-slider {
+    height: 5px;
+    border-radius: 0;
+    background-color: #ccc;
+    border-color: #ccc;
+    .ui-slider-handle {
+        border-radius: 50%;
+        background-color: #1b1b1c;
+        border-color: #1b1b1c;
+        top: -6px;
+    }
+}
+
+.hide-me {
+    border: none !important;
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    position: absolute !important;
+}

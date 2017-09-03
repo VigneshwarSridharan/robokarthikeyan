@@ -8,23 +8,35 @@
  */
 
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-
-		<?php if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php robokarthikeyan_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-summary">
-		<?php the_excerpt(); ?>
-	</div><!-- .entry-summary -->
-
-	<footer class="entry-footer">
-		<?php robokarthikeyan_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+<div class="post-items-grid">
+    <div class="row flex-center">
+        <div class="col-sm-6">
+            <?php 
+                $post_img = get_post_meta(get_the_ID(),'Post_img',true);
+                $x_pos = get_post_meta(get_the_ID(),'Xpos',true);
+                $y_pos = get_post_meta(get_the_ID(),'Ypos',true);
+                $size = get_post_meta(get_the_ID(),'size',true);
+            ?>
+            <a href="<?php echo get_permalink(get_the_ID()); ?>">
+                <div class="post-img" style="background: url(<?php echo wp_get_attachment_image_src($post_img,'full')[0]; ?>) no-repeat <?php echo $x_pos .'% '. $y_pos.'% ' ?> / cover; background-size:<?php echo $size; ?>%">
+                    <img src="<?php echo get_template_directory_uri() .'/images/empty.png' ?>" class="img-responsive" alt="">
+                </div>
+            </a>
+        </div>
+        <div class="col-sm-6">
+            <div class="post-content">
+                <div class="head">
+                    <a href="<?php echo get_permalink(get_the_ID()); ?>">
+                        <h3 class="heading"> <?php echo get_the_title(); ?> </h3>
+                    </a>
+                    <p><i><?php robokarthikeyan_posted_on(); ?></i></p>
+                </div>
+                <p><?php
+                    the_excerpt(); 
+                ?></p>
+                <a href="<?php echo get_permalink(get_the_ID()); ?>"><div class="btn btn-move"><span>Read More</span> <i class="fa fa-arrow-right"></i></div></a>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,3 +1,134 @@
-.box {
-  color: red;
+.post-image-wrapper {
+  position: relative;
+  border: solid 1px #1b1b1c;
+  line-height: 0;
+}
+.post-image-wrapper .img {
+  display: inline-block;
+}
+.post-image-wrapper .upload {
+  text-align: center;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  background-color: #1b1b1c;
+  color: #fff;
+  position: absolute;
+  right: 0px;
+  top: 0;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.post-image-wrapper .controls {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+.post-image-wrapper .controls .left,
+.post-image-wrapper .controls .right,
+.post-image-wrapper .controls .top,
+.post-image-wrapper .controls .bottom {
+  position: absolute;
+  color: #fff;
+  background-color: rgba(27, 27, 28, 0.5);
+  opacity: 0;
+  font-size: 36px;
+  cursor: pointer;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -o-transition: all .5s ease;
+  transition: all .5s ease;
+}
+.post-image-wrapper .controls .left:hover,
+.post-image-wrapper .controls .right:hover,
+.post-image-wrapper .controls .top:hover,
+.post-image-wrapper .controls .bottom:hover {
+  opacity: 1;
+}
+.post-image-wrapper .controls .left,
+.post-image-wrapper .controls .right {
+  width: 30px;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+     -moz-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+     -moz-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  bottom: 0;
+}
+.post-image-wrapper .controls .top,
+.post-image-wrapper .controls .bottom {
+  left: 0;
+  right: 0;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+}
+.post-image-wrapper .controls .left {
+  left: 0;
+}
+.post-image-wrapper .controls .right {
+  right: 0;
+}
+.post-image-wrapper .controls .top {
+  top: 0;
+}
+.post-image-wrapper .controls .bottom {
+  bottom: 0;
+}
+.post-image-wrapper:hover .upload {
+  right: -40px;
+}
+.btn-black {
+  background-color: #1b1b1c;
+  color: #fff;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 0px;
+}
+.btn-black:hover {
+  outline: none;
+  color: #fff;
+}
+.form-control {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 0;
+  border: none;
+  resize: none;
+}
+.ui-slider {
+  height: 5px;
+  border-radius: 0;
+  background-color: #ccc;
+  border-color: #ccc;
+}
+.ui-slider .ui-slider-handle {
+  border-radius: 50%;
+  background-color: #1b1b1c;
+  border-color: #1b1b1c;
+  top: -6px;
+}
+.hide-me {
+  border: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  position: absolute !important;
 }
