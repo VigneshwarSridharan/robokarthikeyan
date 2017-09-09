@@ -39,31 +39,8 @@ get_header(); ?>
 			     <?php
 			     endif;
                  ?>
-                 <div class="container">
-                    <div class="row">
-                            <div class="col-sm-8 col-sm-offset-2">
-                                <div class="poster">
-                                    <?php echo the_post_thumbnail( 'full', ['class'=>'img-responsive'] ); ?>
-                                    <div class="clearfix">
-                                        <div class="pull-left">
-                                            <div class="like">
-                                                <i class="fa fa-thumbs-o-up"></i>
-                                            </div>
-                                        </div>
-                                        <div class="pull-right">
-                                            <ul class="share-social-media">
-                                                <li><a href="https://facebook.com/sharer/sharer.php?u=<?php echo get_the_permalink(); ?>" target="_blank"><i class="fa fa-facebook-f"></i><span class="count"></span></a></li>
-                                                <li><a href="https://twitter.com/home?status=<?php echo get_the_permalink(); ?>" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                                                <li><a href="https://plus.google.com/share?url=<?php echo get_the_permalink(); ?>" target="_blank"><i class="fa fa-google-plus"></i></a></li>
-                                                <li><a href="whatsapp://send?text=<?php echo get_the_permalink().' '.get_the_title(); ?>" target="_self"><i class="fa fa-whatsapp"></i></a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                  </div>
                  
+                 <div class="page-content">
                  <div class="container">
 		<?php
 			the_content( sprintf(
@@ -84,7 +61,7 @@ get_header(); ?>
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
+	
 			     
                 <?php
 
@@ -98,7 +75,9 @@ $count = 0;
 		endwhile; // End of the loop.
 		?>
 
-
+</div><!-- .entry-content -->
+             </div>
+             <div class="search-content"></div>
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

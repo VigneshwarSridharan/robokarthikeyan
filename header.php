@@ -22,13 +22,18 @@
 
 <body <?php body_class(); ?>>
 
-<nav id="site-navigation" class="main-navigation" role="navigation">
+<nav id="navigation" class="page-navigation" role="navigation">
 			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'robokarthikeyan' ); ?></button>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
+					'menu_id'        => 'nav',
+                    'menu_class'     => 'links',
+                    'container_class'=> 'container'
 				) );
 			?>
-		</nav><!-- #site-navigation -->
+			<div class="close-nav" toggle-nav>
+			    <span></span><span></span>
+			</div>
+</nav><!-- #site-navigation -->
 	

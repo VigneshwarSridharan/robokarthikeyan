@@ -7,18 +7,31 @@
  * @package robokarthikeyan
  */
 
-//get_header(); ?>
+get_header(); ?>
 
     <?php
 		if ( have_posts() ) : 
-                 ?>
-            
-            <div class="container">
-                <div class="search-page-title">
-                    <div class="container bg-white page-title">
-                        <h1 class="no-margin-bottom"><?php printf( esc_html__( 'Search Results for: %s', 'robokarthikeyan' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+            if (  ! is_front_page() ) : ?>
+        <header id="bg-head" class="section-wrapper tb-pad">
+            <div class="section-bg bottom" style="background-image: url(<?php echo wp_get_attachment_image_src(8,'full',true)[0]; ?>)">
+                <div class="container">
+                    <div class="content">
+                        <div class="nav-btn">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div class="container bg-white page-title">
+                <h1 class="no-margin-bottom"><?php printf( esc_html__( 'Search Results for: %s', 'robokarthikeyan' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+            </div>
+        </header>
+        <?php
+			     endif;
+                 ?>
+            <div class="container">
                 <div class="row">
                     <div class="col-sm-9">
 
@@ -56,4 +69,4 @@
 
                 <?php
 
-//get_footer();
+get_footer();

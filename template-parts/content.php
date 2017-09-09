@@ -29,7 +29,7 @@
                     <a href="<?php echo get_permalink(get_the_ID()); ?>">
                         <h3 class="heading"> <?php echo get_the_title(); ?> </h3>
                     </a>
-                    <p><i><?php robokarthikeyan_posted_on(); ?></i></p>
+                    <p><i><?php robokarthikeyan_posted_on(); ?> <span style="margin-left:15px;"><i class="fa fa-comment-o"></i> <?php echo wp_count_comments(get_the_ID())->approved; ?></span></i></p>
                 </div>
                 <p><?php
                     the_excerpt(); 

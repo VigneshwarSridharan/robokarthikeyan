@@ -23,6 +23,10 @@ get_header(); ?>
                                         <span></span>
                                         <span></span>
                                     </div>
+                                    <form method="get" class="search-box" action="<?php echo site_url(); ?>">
+                                        <input type="text" placeholder="search" name="s">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                    </form>
                                 </div>
 				            </div>
 				        </div>
@@ -34,6 +38,7 @@ get_header(); ?>
 			     <?php
 			     endif;
                  ?>
+                 <div class="page-content">
                  <div class="container">
                     <div class="row">
                             <div class="col-sm-8 col-sm-offset-2">
@@ -79,21 +84,27 @@ get_header(); ?>
 				'after'  => '</div>',
 			) );
 		?>
+		<div class="clearfix">
+		    <div class="pull-left"><?php previous_post_link('%link','<div class="btn btn-move"><span>%title</span><i class="fa fa-arrow-left"></i></div>','yes'); ?></div>
+		    <div class="pull-right"><?php next_post_link('%link','<div class="btn btn-move"><span>%title</span><i class="fa fa-arrow-right"></i></div>','yes'); ?></div>
+		</div>
+		
+		    
 	</div><!-- .entry-content -->
 			     
                 <?php
 
-			//the_post_navigation();
-$count = 0;
+//			the_post_navigation();
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();
 			endif;
+                     ?></div> <div class="search-content"></div><?php
 
 		endwhile; // End of the loop.
 		?>
 
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();

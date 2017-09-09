@@ -133,7 +133,6 @@ function robokarthikeyan_save_page_options($post_id)
     $y_pos = sanitize_text_field( $_POST['img-pos-y'] );
     $size = sanitize_text_field( $_POST['img-size'] );
     
-    echo $size;
     
     update_post_meta($post_id,'Post_img',$post_img);
     update_post_meta($post_id,'Xpos',$x_pos);

@@ -16,7 +16,7 @@ function robokarthikeyan_admin_scripts( $hook )
     
     // Admin stylesheet enqueue
     wp_register_style('jquery-ui-css', get_template_directory_uri() . '/css/jquery-ui.min.css');
-    wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+    wp_register_style('bootstrap', get_template_directory_uri() . '/css/bootstrap-grid.css');
     wp_register_style('Font Awesome', get_template_directory_uri() . '/css/font-awesome.min.css');
     wp_register_style('robokarthikeyan-admin',get_template_directory_uri().'/css/admin-style.css',array(),'1.0.0','all');
     wp_enqueue_style( 'jquery-ui-css' );

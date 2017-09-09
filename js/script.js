@@ -25,12 +25,66 @@
         });
     }
     
-    $(document).ready(function () {
-        count();
-        gridShift();
-    });
-    $(window).load(function() {
-        
+    function navigation()
+    {
+        $('.nav-btn,.close-nav').click(function() {
+            $('body').toggleClass('menu-open');
+            if($('body').hasClass('menu-open'))
+                {
+                    $('.links li').each(function(k,el) {
+                        setTimeout(function() {
+                            $(el).addClass('visble');
+                        },k*150);
+                    });
+                }
+            else
+                {
+                    $('.links li').removeClass('visble');
+                }
+            
+        });
+    }
+    
+    function search()
+    {
+        var aj;
+        $('.search-box [name="s"]').on('input',function() {
+            var search = $(this).val();
+            if(search != "")
+                {
+                     $('.search-content').show();
+                     clearTimeout(aj);
+                     aj = setTimeout(function() {
+                        $('.page-content,header .page-title').hide();
+                        $.ajax({
+                            method: "POST",
+                            url: "http://spiderznet.com/karthikeyan/",
+                            data: { s: search },
+                            success: function(data) {
+                                
+                                $('.search-content').html(data);
+                                gridShift();
+                                moveButton();
+                            },
+                            error: function()
+                            {
+                                
+                            }
+                        });
+                    },1000);
+                }
+            else
+                {
+                    clearTimeout(aj);
+                    $('.page-content,header .page-title').show();
+                    $('.search-content').hide();
+                }
+            
+        })
+    }
+    
+    function moveButton()
+    {
         $('.btn-move').each(function(k,el) {
             var paddingRight;
             if($(el).hasClass('btn-large'))
@@ -45,7 +99,18 @@
                 width:$(el).find('span').outerWidth()+paddingRight
             });
         });
-            
+    }
+    
+    $(document).ready(function () {
+        count();
+        navigation();
+        gridShift();
+        search();
+    });
+    $(window).load(function() {
+        
+        
+            moveButton();
             
         
     });

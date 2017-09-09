@@ -11,7 +11,7 @@
 
 ?>
 
-<footer class="section-wrapper tb-pad">
+<footer class="section-wrapper tb-pad page-footer">
     <div class="section-bg bottom" style="background-image: url(<?php echo wp_get_attachment_image_src(8,'full',true)[0]; ?>)">
         <div class="container">
             <?php
