@@ -170,3 +170,13 @@ require get_template_directory() . '/inc/page-options.php';
  *
  */
 require get_template_directory() . '/inc/widget.php';
+
+/**
+ * Login Functions
+ */
+require get_template_directory() . '/inc/login.php';
+
+/**
+ * Login Functions
+ */
+require get_template_directory() . '/inc/ajax.php';

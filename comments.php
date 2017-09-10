@@ -20,7 +20,7 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area section-wrapper tp-pad">
+<div id="comments" class="comments-area section-wrapper tb-pad">
     <div class="container">
         <div class="section-title">
             <h1>Drop Your Words</h1>

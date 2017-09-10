@@ -101,18 +101,33 @@
         });
     }
     
+    function wp_ajax()
+    {
+        $.ajax({
+            type: 'POST',
+            url: 'http://spiderznet.com/karthikeyan/wp-admin/admin-ajax.php',
+            data : ({
+                action : 'add_foobar'
+            }),
+            success : function(data)
+            {
+                console.log(data);
+            }
+        });
+    }
+    
     $(document).ready(function () {
         count();
         navigation();
         gridShift();
         search();
+        
+        $('.call').click(function() {
+            wp_ajax();
+        });
     });
     $(window).load(function() {
-        
-        
-            moveButton();
-            
-        
+        moveButton();
     });
 })(jQuery)
 
