@@ -22,8 +22,9 @@
 
 <body <?php body_class(); ?>>
 
+<?php login_check(); ?>
+
 <nav id="navigation" class="page-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'robokarthikeyan' ); ?></button>
 			<?php
 				wp_nav_menu( array(
 					'theme_location' => 'menu-1',
@@ -32,8 +33,32 @@
                     'container_class'=> 'container'
 				) );
 			?>
+			<ul class="links">
+			    <?php  
+                if(is_user_logged_in())
+                {
+                    ?>
+                    <li>
+                        <a href="<?php echo wp_logout_url(site_url()) ?>">Logout</a>
+                    </li>
+                    <?php
+                }
+                else
+                {
+                    ?>
+                    <li>
+                        <a href="#User-login" data-toggle="modal" data-tab-open="#register">Register</a>
+                    </li>
+                    <li>
+                        <a href="#User-login" data-toggle="modal" data-tab-open="#login">Login</a>
+                    </li>
+                    <?php
+                }
+                ?>
+			</ul>
 			<div class="close-nav" toggle-nav>
 			    <span></span><span></span>
 			</div>
 </nav><!-- #site-navigation -->
 	
+<?php fixedNavigation(); ?>

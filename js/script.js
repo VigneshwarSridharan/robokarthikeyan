@@ -27,7 +27,7 @@
     
     function navigation()
     {
-        $('.nav-btn,.close-nav').click(function() {
+        $('.nav-btn,[toggle-nav]').click(function() {
             $('body').toggleClass('menu-open');
             if($('body').hasClass('menu-open'))
                 {
@@ -103,17 +103,57 @@
     
     function wp_ajax()
     {
+        var redirct = false;
         $.ajax({
             type: 'POST',
             url: 'http://spiderznet.com/karthikeyan/wp-admin/admin-ajax.php',
             data : ({
-                action : 'add_foobar'
+                action : 'add_foobar',
+                uname : $('[name="uname"]').val(),
+                email : $('[name="email"]').val(),
+                pword : $('[name="pword"]').val()
             }),
             success : function(data)
             {
-                console.log(data);
+                var jdata = JSON.parse(data);
+                console.log(jdata);
+                if(jdata.username_exists == false && jdata.email_exists == false)
+                    {
+                        
+                        console.log('redirct to :'+jdata.redirect);
+                        redirct = jdata.redirect;
+                    }
             }
         });
+        
+    }
+    
+    function opentab()
+    {
+        var data; 
+        $('[data-tab-open]').on('click', function() {
+            data =$(this).data('tab-open');
+        });
+        
+        $('#User-login').on('show.bs.modal',function() {
+            $('[href="'+data+'"]').tab('show');
+        });
+        
+        $('[href="#login"],[href="#register"]').on('shown.bs.tab',function() {
+            moveButton();
+        });
+    }
+    
+    function fixedNavigation(top)
+    {
+        if(top > 100)
+            {
+                $('.fixed-nav').addClass('active');
+            }
+        else
+            {
+                $('.fixed-nav').removeClass('active');
+            }
     }
     
     $(document).ready(function () {
@@ -121,13 +161,19 @@
         navigation();
         gridShift();
         search();
-        
+        moveButton();
+        opentab();
         $('.call').click(function() {
             wp_ajax();
         });
     });
     $(window).load(function() {
         moveButton();
+    });
+    
+    $(window).on('scroll', function() {
+        var top = $(window).scrollTop();
+        fixedNavigation(top);
     });
 })(jQuery)
 

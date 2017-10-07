@@ -126,6 +126,15 @@ add_filter( 'excerpt_length', function( $length ) {
     return 20;
 }, 999 );
 
+// admin bar
+add_action('get_header', 'remove_admin_login_header');
+     
+function remove_admin_login_header() {
+   remove_action('wp_head', '_admin_bar_bump_cb');
+}
+show_admin_bar( false );
+
+
 /**
  * Implement the Custom Header feature.
  */
@@ -180,3 +189,8 @@ require get_template_directory() . '/inc/login.php';
  * Login Functions
  */
 require get_template_directory() . '/inc/ajax.php';
+
+/**
+ *  Visuval composer
+ */
+require get_template_directory() . '/inc/custom-vc.php';
